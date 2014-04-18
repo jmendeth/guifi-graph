@@ -1,0 +1,26 @@
+{ "name": "guifi-graph"
+, "version": "0.0.1"
+, "private": true
+
+, "keywords": ["guifi", "graph", "network"]
+, "description": "Generate a portable graph to visualize guifi.net structure."
+, "homepage": "https://github.com/jmendeth/guifi-graph"
+
+, "licenses": [ { "type": "BSD", "url": "http://opensource.org/licenses/BSD-2-Clause" }
+              ]
+
+, "author": "Xavier Mendez <jmendeth@gmail.com> (http://jmendeth.com)"
+, "contributors": [ "Xavier Mendez <jmendeth@gmail.com>"
+                  ]
+, "maintainers": [ "Xavier Mendez <jmendeth@gmail.com>"
+                 ]
+
+, "dependencies": { "hbs": ">= 0.0.1"
+                  , "uglifyjs": ">= 0.0.1"
+                  }
+, "bin": "index.js"
+
+, "repository": { "type": "git"
+                , "url": "https://github.com/jmendeth/guifi-graph.git" }
+, "bugs": { "url": "https://github.com/jmendeth/guifi-graph/issues" }
+}
