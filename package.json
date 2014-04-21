@@ -15,8 +15,24 @@
 , "maintainers": [ "Xavier Mendez <jmendeth@gmail.com>"
                  ]
 
-, "dependencies": { "hbs": ">= 0.0.1"
-                  , "uglifyjs": ">= 0.0.1"
+, "dependencies": { "gulp": ">= 0.0.1"
+                  , "gulp-clean": ">= 0.0.1"
+                  , "gulp-uglify": ">= 0.0.1"
+                  , "gulp-sass": ">= 0.0.1"
+                  , "gulp-minify-html": ">= 0.0.1"
+
+                  , "xml2js": ">= 0.0.1"
+                  , "q": ">= 0.0.1"
+
+
+                  , "through2": ">= 0.0.1"
+                  , "gulp-util": ">= 0.0.1"
+                  , "clean-css": ">= 0.0.1"
+
+                  , "mime": ">= 0.0.1"
+                  , "curler": ">= 0.0.1"
+                  , "cheerio": ">= 0.0.1"
+                  , "css": ">= 0.0.1"
                   }
 , "bin": "index.js"
 

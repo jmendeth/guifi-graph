@@ -34,13 +34,14 @@ You should first download guifi.net's CNML:
 $ wget http://guifi.net/snpservices/data/guifi.cnml
 ```
 
-Then, generate the HTML graph:
+Then, build the HTML graph:
 
 ```bash
-$ node index guifi.cnml
+$ gulp
 ```
 
-The graph will be generated in `guifi.html`.
+The graph will be generated in `build/guifi.<date>.html`, where `<date>`
+is the date, in ISO 8601 Extended Format, that `guifi.cnml` was generated.
 
 
 ## Tweaking
@@ -49,11 +50,15 @@ If you know JavaScript, it's easy to tweak the appearence and behaviour of the g
 These are the files you probably want to modify.
 
 `view.html` contains the main [Handlebars][] view.  
-`styles.css` contains, well, the CSS.  
+`styles.scss` contains, well, the SCSS.  
 `main.js` contains the logic to render the graph and UI.  
-`vendor/` contains the third-party libraries used.
+`assets/` contains some images for the graph.  
+`vendor/` contains the third-party JS libraries used.
+
+Thanks to [SubtlePatterns][] for the background.
 
 
 
 [guifi-earth]: https://github.com/jmendeth/guifi-earth
 [Node.JS]: http://nodejs.org
+[SubtlePatterns]: http://subtlepatterns.com
