@@ -3,6 +3,7 @@
 
 var gulp = require("gulp")
   , sass = require("gulp-sass")
+  , autoprefixer = require("gulp-autoprefixer")
   , uglify = require("gulp-uglify")
   , clean = require("gulp-clean")
   , minify = require("gulp-minify-html")
@@ -22,9 +23,10 @@ gulp.task("styles", function() {
   var sassOptions = {};
   if (env === "development")
     sassOptions.sourceComments = "map";
-//FIXME: autoprefixer
+
   return gulp.src("styles.scss")
     .pipe(sass(sassOptions))
+    .pipe(autoprefixer("last 1 version", "> 1%", "ie 8"))
     .pipe(gulp.dest("build"));
 });
 
@@ -42,7 +44,7 @@ gulp.task("content", function() {
   return cnml("guifi.cnml");
 })
 
-gulp.task("render", ["styles", "scripts", "content"], function() {
+gulp.task("render", ["styles", "scripts", "content"],  function() {
   if (env === "development") {
     console.log("Not embedding since we're in development.");
     return;
