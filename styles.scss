@@ -6,9 +6,13 @@
   user-select: none;
 }
 
+button::-moz-focus-inner {
+  border: 0;
+}
+
 body, html {
   background: url(../assets/bg.png) 50% 50%;
-  font: 400 20px/1.4 "Lato";
+  font: 400 20px/1.4 "Helvetica Neue","Helvetica","Arial",sans-serif;
   color: #959595;
   height: 100%;
   min-width: 500px;
@@ -18,26 +22,38 @@ body, html {
 #content {
   width: 100%;
   height: 100%;
-  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > * { display: none; }
+  .loading { display: block; } //FIXME
+
   &.on-search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    .graph { display: none; }
+    #search { display: flex; }
   }
-  
   &.on-graph {
-    .search { display: none; }
+    #graph { display: block; }
+  }
+
+  &.on-graph, &.on-search {
+    .loading { display: none; }
   }
 }
 
-.search {
-  display: flex;
-  
+.loading {
+  color: #eee;
+  font-size: .8em;
+  text-shadow: 0 1px 4px rgba(0,0,0,.7);
+}
+
+#search {  
   input[type="text"] {
     width: 260px;
-    font: 300 1em/1.3 "Lato";
+    font-weight: 300;
+    font-size: 1em;
+    line-height: 1.3;
     color: rgba(255,255,255,1);
     background: rgba(0,0,0,.2);
     border: 1px solid black;
@@ -58,7 +74,7 @@ body, html {
   button {
     background: linear-gradient(to bottom, #666 0%,#333 100%);
     color: white;
-    font: 300 1.2em "Arial";
+    font: 400 1.2em "Arial", sans-serif;
     baseline-shift: -2px;
     box-shadow: 0 1px 16px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.5);
     border: 1px solid rgba(0,0,0,1);
