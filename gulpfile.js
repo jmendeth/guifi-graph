@@ -6,6 +6,7 @@ var gulp = require("gulp")
   , autoprefixer = require("gulp-autoprefixer")
   , uglify = require("gulp-uglify")
   , clean = require("gulp-clean")
+  , rename = require("gulp-rename")
   , minify = require("gulp-minify-html")
   , embedder = require("./lib/gulp-embedder")
 
@@ -32,7 +33,7 @@ gulp.task("styles", function() {
 
 gulp.task("scripts", function() {
   var file = gulp.src("main.js");
-  
+
   if (env === "production")
     file = file.pipe(uglify());
   
@@ -44,7 +45,7 @@ gulp.task("content", function() {
   return cnml("guifi.cnml");
 })
 
-gulp.task("render", ["styles", "scripts", "content"],  function() {
+gulp.task("embed", ["styles", "scripts", "content"],  function() {
   if (env === "development") {
     console.log("Not embedding since we're in development.");
     return;
@@ -56,7 +57,8 @@ gulp.task("render", ["styles", "scripts", "content"],  function() {
       compressCss: {keepSpecialComments: 0}
     }))
     .pipe(minify())
-    .pipe(gulp.dest("build/guifi."+date.toISOString()+".html"));
+    .pipe(rename("guifi."+date.toISOString()+".html"))
+    .pipe(gulp.dest("build"));
 });
 
-gulp.task("default", ["render"], function() {});
+gulp.task("default", ["embed"], function() {});
